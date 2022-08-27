@@ -49,6 +49,21 @@ def get_report(start_date, end_date):
         result['roi'] = 0 
 
     #print(result)
+    try:
+        metric = Metrics(
+            request = response,
+            total_count_users = result['users'],
+            consersion_purchases = result['users_in_transactions'],
+            consersion_products = result['productRevenuePerPurchase'],
+            roi = result['roi'],
+            abandoned_carts = result['abandoned_carts'],
+            revenue_per_transaction = result['revenuePerTransaction'],
 
+        )
+    except KeyError:
+        metric = Metrics(
+            request = response
+        ) 
+    
     #metric.save()
     return metric
