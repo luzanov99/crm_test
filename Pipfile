@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
+djangorestframework = "*"
+oauth2client = "*"
+google-api-python-client = "*"
+django-filter = "*"
 
 [dev-packages]
 
