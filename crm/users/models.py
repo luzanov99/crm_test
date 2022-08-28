@@ -61,3 +61,26 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_user_activities(time_delta=timedelta(minutes=15)):
         starting_time = timezone.now() - time_delta
         return User.objects.filter(last_online=starting_time).order_by('-last_online')
+
+
+class Role(models.Model):
+    name = models.CharField(max_length=250, verbose_name='Название')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Роль пользователя'
+        verbose_name_plural = 'Роли пользователей'
+
+
+class Group(models.Model):
+    name = models.CharField(max_length=250, verbose_name='Название')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Группа пользователя'
+        verbose_name_plural = 'Группы пользователей'
+
