@@ -84,3 +84,11 @@ class Group(models.Model):
         verbose_name = 'Группа пользователя'
         verbose_name_plural = 'Группы пользователей'
 
+
+class Tags(models.Model):
+    name = models.CharField(max_length=100)
+
+
+class Projects(models.Model):
+    name = models.CharField(max_length=120)
+
